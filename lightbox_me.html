@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>라이트박스</title>
+    <link rel="stylesheet" href="css/lightbox1.css">
+  </head>
+  <body>
+    <h1>&#10024;stained glass works&#128171;</h1>
+    <div class="row">
+      <ul>    
+        <li><img src="img/stain_1_thumb.jpg" data-src="img/stain_1.jpg" class="pic"></li>
+        <li><img src="img/stain_2_thumb.jpg" data-src="img/stain_2.jpg" class="pic"></li>
+        <li><img src="img/stain_3_thumb.jpg" data-src="img/stain_3.jpg" class="pic"></li> 
+        <li><img src="img/stain_4_thumb.jpg" data-src="img/stain_4.jpg" class="pic"></li>
+        <li><img src="img/stain_5_thumb.jpg" data-src="img/stain_5.jpg" class="pic"></li>
+        <li><img src="img/stain_6_thumb.jpg" data-src="img/stain_6.jpg" class="pic"></li>          
+      </ul>    
+    </div>
+    <div id="lightbox">
+			<img src="img/stain_1.jpg" alt="" id="lightboxImage">			
+    </div>
+
+    <!-- 스크립트 -->
+    <script>
+      let pics = document.getElementsByClassName('pic');
+
+      let lightbox = document.getElementById('lightbox');
+      let lightboxImage = document.getElementById('lightboxImage');
+
+      for(i=0; i<pics.length; i++){
+        pics[i].addEventListener('click', showLightbox);
+      }
+      function showLightbox(){
+        let bigImg = this.getAttribute('data-src');
+        lightboxImage.setAttribute('src', bigImg);
+        lightbox.style.display='block';
+      }
+
+      lightbox.onclick = function(){
+        lightbox.style.display='none';
+      }
+    </script>
+  </body>
+</html>
